@@ -139,7 +139,7 @@ while True:
                 print("sorry we run out of water")
 
     if sources["Coffee"] < 18 or sources["Water"] < 50 :
-        print("Coffee machine is out of order")
+        print("Coffee machine is out of order asliydgfkhiyldhugildhsiyg")
         break
         
         

@@ -146,7 +146,7 @@ while True:
         Dime_cash    = int(input("How much Dime inserted? "))
         Quarter_cash = int(input("How much Quarter inserted? "))
 
-        Order_Price = Menu[User_Order]['Price']*2
+        Order_Price = Menu[User_Order]['Price']
         Order_Cost = Menu[User_Order]['Cost']
         Profit += Order_Price - Order_Cost
 
