@@ -146,13 +146,13 @@ while True:
         Dime_cash    = int(input("How much Dime inserted? "))
         Quarter_cash = int(input("How much Quarter inserted? "))
 
-        Order_Price = Menu[User_Order]['Price']*2
+        Order_Price = Menu[User_Order]['Price']
         Order_Cost = Menu[User_Order]['Cost']
         Profit += Order_Price - Order_Cost
-
+            
         # if user inserted enough money in machine and then the machine makes the order and update the resources
         CheckMoney_and_UpdateResources(Penny_cash, Nickel_cash, Dime_cash, Quarter_cash)
-
+        # i made some changes in github    
         
 
 
