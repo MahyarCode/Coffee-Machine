@@ -152,7 +152,9 @@ while True:
             
         # if user inserted enough money in machine and then the machine makes the order and update the resources
         CheckMoney_and_UpdateResources(Penny_cash, Nickel_cash, Dime_cash, Quarter_cash)
-        # i made some changes in github    
-        # hanoz nashode
 
+
+        # hala mikham ke inaro bebaram tooye github
+        # bebin ke aya ina mire ya na
+        
 
