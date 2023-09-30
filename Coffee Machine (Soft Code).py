@@ -131,12 +131,12 @@ while True:
 ### ❌❌❌❌Problem Here 👆👆👆👆👆 
 
 ########## Problem: Customer must choose an item in coffee machine
-##########          and at first, machine has to check the resources if it is enough make the order or not
+##########          and at first, machine has to check the resources if it is enough to make the order or not.
 ##########          after that if the resource is enough to make the order, ask for cash from the user + Update the resources 
 ##########   👇👇   which is down below
-##########          but ❌ i can't use this condition ❌ if the resource is not enough to make
-##########          then ask user for another choose: (back again to the loop and ask user again)
-##########          not to break the whole loop !!!!
+##########          but ❌ i can't use this condition ❌ IF THE RESOURCE IS NOT ENOUGH TO MAKE
+##########          and then ask user for another choose: (back again to the loop and ask user again)
+##########          NOT TO BREAK THE WHOLE LOOP !!!!
 ##########          when the source is not enough and user enter the whole price for his order, the resource will update 
 ##########          and this will cause problem for report !!!!
 
@@ -152,9 +152,4 @@ while True:
             
         # if user inserted enough money in machine and then the machine makes the order and update the resources
         CheckMoney_and_UpdateResources(Penny_cash, Nickel_cash, Dime_cash, Quarter_cash)
-
-
-        # hala mikham ke inaro bebaram tooye github
-        # bebin ke aya ina mire ya na
-        
 
