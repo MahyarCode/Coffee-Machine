@@ -138,7 +138,7 @@ while True:
 ##########          and then ask user for another choose: (back again to the loop and ask user again)
 ##########          NOT TO BREAK THE WHOLE LOOP !!!!
 ##########          when the source is not enough and user enter the whole price for his order, the resource will update 
-##########          and this will cause problem for report !!!!
+##########          and this will cause problem for report !!!!!!
 
         # Check how much money inserted in machine
         Penny_cash   = int(input("How much Penny inserted? "))
