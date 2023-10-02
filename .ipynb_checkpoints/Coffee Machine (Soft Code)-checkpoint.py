@@ -158,4 +158,3 @@ while True:
         # bebin ke aya ina mire ya na
         
 
-        # feu;sjdghjaeuibfsjdogbpuisojfer9u[f;noejkpir09uojfk]
