@@ -52,6 +52,7 @@ Quarter = 0.25
 Profit = 0
 
 def isReport(User_Order):
+    global Profit
     if User_Order == "Report": 
         for Ingredient in Resources:
             print(f"{Ingredient}: {Resources[Ingredient]}")
@@ -71,14 +72,6 @@ def isMenu(User_Order):
 
     else:
         print("Invalid input! Please try again")
-            
-def Check_Resources(User_Order):
-    Cooking_items = Menu[User_Order]['Ingredients']
-
-    for Components, quantity in Cooking_items.items():
-        if Resources[Components] < quantity : 
-            print(f"Sorry! There is not enough {Components} ro make {User_Order}")
-            # return False       
 
 def Update_Resources(User_Order):
     Cooking_items = Menu[User_Order]['Ingredients']
@@ -87,7 +80,6 @@ def Update_Resources(User_Order):
         if Resources[Components] >= quantity : 
             Resources[Components] -= quantity
             
-
 def CheckMoney_and_UpdateResources(Penny_cash, Nickel_cash, Dime_cash, Quarter_cash):    
     if isMenu(User_Order):
         Total_cashe = Penny_cash*0.01 + Nickel_cash*0.05 + Dime_cash*0.10 + Quarter_cash*0.25
@@ -104,16 +96,40 @@ def CheckMoney_and_UpdateResources(Penny_cash, Nickel_cash, Dime_cash, Quarter_c
         else:
             print(f"There not enough money for {User_Order}")
 
+def Check_Resource_and_MoneyPaid(User_Order): 
+    Cooking_items = Menu[User_Order]['Ingredients']
+    enough_list = []
+    global Profit
 
+    for Components, quantity in Cooking_items.items():
+        if Resources[Components] < quantity : 
+            print(f"Sorry! There is not enough {Components} ro make {User_Order}")
+            enough_list.append(1)
+        else:
+            enough_list.append(2)
+
+    if 1 not in enough_list:
+        Penny_cash   = int(input("How much Penny inserted? "))
+        Nickel_cash  = int(input("How much Nickel inserted? "))
+        Dime_cash    = int(input("How much Dime inserted? "))
+        Quarter_cash = int(input("How much Quarter inserted? "))
+
+        CheckMoney_and_UpdateResources(Penny_cash,Nickel_cash,Dime_cash,Quarter_cash)
+
+        Order_Price = Menu[User_Order]['Price']
+        Order_Cost = Menu[User_Order]['Cost']
+        Profit += Order_Price - Order_Cost
+
+# create a list for asking user to show all items to choose
 Menu_List = []
 for each_item in Menu:
     Menu_List.append(each_item)
 
 Menu_List = ', '.join(Menu_List)
 
-# The Coffee machine Operation
+# The Coffee machine Operation 
 while True:
-    # user insert a write item in menu
+    # user insert a write item in menu in title formet
     User_Order = input(f"What would you like ? {Menu_List}: ").title()
     
     # Check if manager wants to turn off the machine
@@ -125,31 +141,7 @@ while True:
 
     # Check if user insert a write item in menu
     if isMenu(User_Order):
-        
-### ❌❌❌❌Problem Here 👇👇👇👇👇
-        Check_Resources(User_Order) 
-### ❌❌❌❌Problem Here 👆👆👆👆👆 
 
-########## Problem: Customer must choose an item in coffee machine
-##########          and at first, machine has to check the resources if it is enough to make the order or not.
-##########          after that if the resource is enough to make the order, ask for cash from the user + Update the resources 
-##########   👇👇   which is down below
-##########          but ❌ i can't use this condition ❌ IF THE RESOURCE IS NOT ENOUGH TO MAKE
-##########          and then ask user for another choose: (back again to the loop and ask user again)
-##########          NOT TO BREAK THE WHOLE LOOP !!!!
-##########          when the source is not enough and user enter the whole price for his order, the resource will update 
-##########          and this will cause problem for report !!!!!!
-
-        # Check how much money inserted in machine
-        Penny_cash   = int(input("How much Penny inserted? "))
-        Nickel_cash  = int(input("How much Nickel inserted? "))
-        Dime_cash    = int(input("How much Dime inserted? "))
-        Quarter_cash = int(input("How much Quarter inserted? "))
-
-        Order_Price = Menu[User_Order]['Price']
-        Order_Cost = Menu[User_Order]['Cost']
-        Profit += Order_Price - Order_Cost
-            
-        # if user inserted enough money in machine and then the machine makes the order and update the resources
-        CheckMoney_and_UpdateResources(Penny_cash, Nickel_cash, Dime_cash, Quarter_cash)
+        #Check whether the resource is enough to make and calculate the money or not
+        Check_Resource_and_MoneyPaid(User_Order) 
 
