@@ -49,7 +49,10 @@ Penny = 0.01
 Nickel = 0.05
 Dime = 0.10
 Quarter = 0.25
+#Pay system for coffee machine is to put 4 types of coin which values in above
+#Example: 4 Quartes = $0.25 * 4 = $1
 Profit = 0
+
 
 def isReport(User_Order):
     global Profit
