@@ -107,7 +107,9 @@ def Check_Resource_and_MoneyPaid(User_Order):
             enough_list.append(1)
         else:
             enough_list.append(2)
-
+                    
+    # 1 means: it's not enough to make the order
+    # 2 means: the resource is enough to make the order
     if 1 not in enough_list:
         Penny_cash   = int(input("How much Penny inserted? "))
         Nickel_cash  = int(input("How much Nickel inserted? "))
